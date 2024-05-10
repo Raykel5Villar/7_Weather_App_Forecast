@@ -2,7 +2,19 @@ import streamlit as st
 import plotly.express as px
 from backend import get_data
 
+
+st.set_page_config(page_title="Weather Forecast App",
+    page_icon="sun_with_face",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items={
+        'About': "## This is an *extremely* cool app!"
+    }
+)
+
 st.title("Weather Forecast for the Next Days")
+
+
 place = st.text_input("Place: ")
 days = st.slider("Forecast Days", min_value=1, max_value=5,
                  help="Select the number of forecast days")
