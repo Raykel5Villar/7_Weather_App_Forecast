@@ -42,5 +42,5 @@ if place:
             image_paths = [images[condition] for condition in sky_conditions]
             st.image(image_paths, width=115)
 
-    except:
+    except KeyError:
         st.warning("This city does not exist.")
