@@ -25,12 +25,13 @@ st.subheader(f"{option} for the next {days} days in {place}")
 
 if place:
     # Get temperature data
+    
     try:
         filtered_Data = get_data(place, days)
 
         if option == "Temperature":
             # Create a temperature plit
-            temperature = [dict["main"]["temp"] / 10 for dict in filtered_Data]
+            temperature = [dict['main']['temp'] / 10 for dict in filtered_Data]
             dates = [dict["dt_txt"] for dict in filtered_Data]
             figure = px.line(x=dates, y=temperature, labels={"x": "Date", "y": "Temperature (C)"})
             st.plotly_chart(figure)
